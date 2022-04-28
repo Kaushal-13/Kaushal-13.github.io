@@ -1,6 +1,5 @@
 import streamlit as st 
 import pandas as pd;
-pip install vaderSentiment;
 #do using vader
 from textblob import TextBlob 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer

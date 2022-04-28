@@ -73,24 +73,24 @@ elif(choose == "Advanced Version"):
       if uploadedFile is not None and uploadedFile.type == "csv":
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-            for index,row in df.iterrows():
+            for index,row in df1.iterrows():
                 s = s + score(row['tweet']);
                 st.write("hello");
       result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = s
 
-      if result_sentiment > 0.5 and result_sentiment < 1 :
+      if result_sentiment > 0.25 and result_sentiment < 1 :
             st.write('Prediction  :')
             st.subheader('Positive')
             st.success(f'Score : {result_sentiment}')
 
-      elif result_sentiment < 0 :
+      elif result_sentiment < -0.25 :
             st.write('Prediction  :')
             st.subheader('Negative')
             st.success(f'Score : {result_sentiment}')
 
-      elif result_sentiment >= 0 and result_sentiment <= 0.5 :
+      elif result_sentiment >= -0.25nd result_sentiment <= 0.25:
             st.write('Prediction  :')
             st.subheader('Neutral')
             st.success(f'Score : {result_sentiment}')

@@ -77,7 +77,7 @@ elif(choose == "Advanced Version"):
                 s = s + score(row["tweet"]);
       result_sentiment = 2;
       if st.button("Analyze"):
-            result_sentiment = sum
+            result_sentiment = s
             
       if result_sentiment > 0.5 and result_sentiment < 1 :
             st.write('Prediction  :')

@@ -7,3 +7,4 @@ matplotlib
 sklearn
 opencv-python-headless
 vaderSentiment
+streamlit_option_menu

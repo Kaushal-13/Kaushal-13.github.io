@@ -62,5 +62,5 @@ elif(page == "Advanced version"):
       if uploadedFile is not None and uploadedFile.type == "csv":
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-      if uploadedFile is not None and uploadedFile.endswith('xlsx'):
+      if uploadedFile is not None and uploadedFile.type = "xlsx":
             df1 = pd.read_excel(uploadedFile);

@@ -42,7 +42,7 @@ elif (page == "Faqs"):
                 (NLP) that identifies the emotional tone behind a body of text. 
                 This is a popular way for organizations to determine and categorize opinions about a product, service, or idea.""");
                 
-       st.write("""How can sentiment anlysis be used?
+      st.write("""How can sentiment anlysis be used?
             Sentiment Analysis can be used to understand public opinions on nearly everything like the review of a product 
             or the working of a company or the way the people are reacting to news. """);
       st.download_button('Download CSV', text_contents, 'text/csv')

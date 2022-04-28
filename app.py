@@ -74,7 +74,7 @@ elif(choose == "Advanced Version"):
             df1 = pd.read_csv(uploadedFile);
             sum = 0;
             for index,row in df.iterrows():
-                sum = sum + score(row["tweet']);
+                sum = sum + score(row["tweet"]);
         if st.button("Analyze"):
               result_sentiment = sum
             

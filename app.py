@@ -1,5 +1,6 @@
 import streamlit as st 
 import pandas as pd;
+from streamlit_option_menu import option_menu
 #do using vader
 from textblob import TextBlob 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer

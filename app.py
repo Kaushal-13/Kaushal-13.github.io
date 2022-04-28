@@ -45,6 +45,12 @@ elif (page == "Faqs"):
       st.write("""How can sentiment anlysis be used?
             Sentiment Analysis can be used to understand public opinions on nearly everything like the review of a product 
             or the working of a company or the way the people are reacting to news. """);
+      text_contents = '''
+                  Foo, Bar
+                  123, 456
+                  789, 000
+                  '''
+
       st.download_button('Download CSV', text_contents, 'text/csv')
       st.download_button('Download CSV', text_contents)  # Defaults to 'text/plain'
 

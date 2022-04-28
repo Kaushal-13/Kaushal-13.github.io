@@ -1,6 +1,10 @@
 import streamlit as st 
 from textblob import TextBlob 
 
+
+st.write(""" Simple Sentiment Analysis app,
+This app can be usesd to identify people's opinion to some extent""");
+
 # Title
 st.title("Sentiment Analysis")
 

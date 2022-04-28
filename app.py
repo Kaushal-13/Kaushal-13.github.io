@@ -69,28 +69,28 @@ elif (choose == "Faqs"):
 elif(choose == "Advanced Version"):
       st.title("This is the advanced version It can accept datasets");
       uploadedFile = st.file_uploader("Upload File",type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");
+      s = 0;
       if uploadedFile is not None and uploadedFile.type == "csv":
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-            s = 0;
             for index,row in df.iterrows():
                 s = s + score(row["tweet"]);
-            result_sentiment = 2;
-            if st.button("Analyze"):
-                  result_sentiment = s
+      result_sentiment = 2;
+      if st.button("Analyze"):
+            result_sentiment = s
 
-            if result_sentiment > 0.5 and result_sentiment < 1 :
-                  st.write('Prediction  :')
-                  st.subheader('Positive')
-                  st.success(f'Score : {result_sentiment}')
+      if result_sentiment > 0.5 and result_sentiment < 1 :
+            st.write('Prediction  :')
+            st.subheader('Positive')
+            st.success(f'Score : {result_sentiment}')
 
-            elif result_sentiment < 0 :
-                  st.write('Prediction  :')
-                  st.subheader('Negative')
-                  st.success(f'Score : {result_sentiment}')
+      elif result_sentiment < 0 :
+            st.write('Prediction  :')
+            st.subheader('Negative')
+            st.success(f'Score : {result_sentiment}')
 
-            elif result_sentiment >= 0 and result_sentiment <= 0.5 :
-                  st.write('Prediction  :')
-                  st.subheader('Neutral')
-                  st.success(f'Score : {result_sentiment}')
+      elif result_sentiment >= 0 and result_sentiment <= 0.5 :
+            st.write('Prediction  :')
+            st.subheader('Neutral')
+            st.success(f'Score : {result_sentiment}')
             

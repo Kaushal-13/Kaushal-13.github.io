@@ -13,7 +13,7 @@ def score(sentence):
     #return val if you need to map bw 0 and 5;
     return sentiment_dict['compound'];
     
-page = st.selectbox("Choose your page",["About us","Our App Basic","Faqs","Advanced version"]);
+page = st.selectbox("Choose your page",["About us","Our App","Faqs","Advanced version"]);
 
 if(page == "About us"):
       st.title("About us");

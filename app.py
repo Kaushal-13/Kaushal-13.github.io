@@ -58,7 +58,7 @@ elif (page == "Faqs"):
             or the working of a company or the way the people are reacting to news. """);
 elif(page == "Advanced version"):
       st.title("This is the advanced version It can accept datasets");
-      uploadedFile = st.file_uploader(fileUploadLabel,type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");
+      uploadedFile = st.file_uploader("Upload File",type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");
       if uploadedFile is not None and uploadedFile.endswith('csv'):
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);

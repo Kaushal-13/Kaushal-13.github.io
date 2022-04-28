@@ -90,7 +90,7 @@ elif(choose == "Advanced Version"):
             st.subheader('Negative')
             st.success(f'Score : {result_sentiment}')
 
-      elif result_sentiment >= -0.25nd result_sentiment <= 0.25:
+      elif result_sentiment >= -0.25 and result_sentiment <= 0.25:
             st.write('Prediction  :')
             st.subheader('Neutral')
             st.success(f'Score : {result_sentiment}')

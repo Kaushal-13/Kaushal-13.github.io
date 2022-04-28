@@ -16,7 +16,7 @@ def score(sentence):
     
 with st.sidebar:
     choose = option_menu("App Gallery", ["About us", "Our App", "Faqs", "Advanced Version"],
-                         icons=['house', 'clipboard-data-fill', 'quora', 'filetype-csv'],
+                         icons=['house', 'file', 'quora', 'file-fill'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "5!important", "background-color": "#fafafa"},
@@ -72,5 +72,24 @@ elif(choose == "Advanced Version"):
       if uploadedFile is not None and uploadedFile.type == "csv":
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-      if uploadedFile is not None and uploadedFile.type == "xlsx":
-            df1 = pd.read_excel(uploadedFile);
+            sum = 0;
+            for index,row in df.iterrows():
+                sum = sum + score(row["tweet']);
+        if st.button("Analyze"):
+              result_sentiment = sum
+            
+        if result_sentiment > 0.5 and result_sentiment < 1 :
+              st.write('Prediction  :')
+              st.subheader('Positive')
+              st.success(f'Score : {result_sentiment}')
+
+        elif result_sentiment < 0 :
+              st.write('Prediction  :')
+              st.subheader('Negative')
+              st.success(f'Score : {result_sentiment}')
+
+        elif result_sentiment >= 0 and result_sentiment <= 0.5 :
+              st.write('Prediction  :')
+              st.subheader('Neutral')
+              st.success(f'Score : {result_sentiment}')
+            

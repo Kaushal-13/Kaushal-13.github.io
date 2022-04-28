@@ -66,7 +66,7 @@ elif (choose == "Faqs"):
       st.write("""How can sentiment anlysis be used?\n
             Sentiment Analysis can be used to understand public opinions on nearly everything like the review of a product 
             or the working of a company or the way the people are reacting to news. """);
-elif(choose == "Advanced version"):
+elif(choose == "Advanced Version"):
       st.title("This is the advanced version It can accept datasets");
       uploadedFile = st.file_uploader("Upload File",type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");
       if uploadedFile is not None and uploadedFile.type == "csv":

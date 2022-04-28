@@ -75,22 +75,22 @@ elif(choose == "Advanced Version"):
             s = 0;
             for index,row in df.iterrows():
                 s = s + score(row["tweet"]);
-      result_sentiment = 2;
-      if st.button("Analyze"):
-            result_sentiment = s
-            
-      if result_sentiment > 0.5 and result_sentiment < 1 :
-            st.write('Prediction  :')
-            st.subheader('Positive')
-            st.success(f'Score : {result_sentiment}')
+            result_sentiment = 2;
+            if st.button("Analyze"):
+                  result_sentiment = s
 
-      elif result_sentiment < 0 :
-            st.write('Prediction  :')
-            st.subheader('Negative')
-            st.success(f'Score : {result_sentiment}')
+            if result_sentiment > 0.5 and result_sentiment < 1 :
+                  st.write('Prediction  :')
+                  st.subheader('Positive')
+                  st.success(f'Score : {result_sentiment}')
 
-      elif result_sentiment >= 0 and result_sentiment <= 0.5 :
-            st.write('Prediction  :')
-            st.subheader('Neutral')
-            st.success(f'Score : {result_sentiment}')
+            elif result_sentiment < 0 :
+                  st.write('Prediction  :')
+                  st.subheader('Negative')
+                  st.success(f'Score : {result_sentiment}')
+
+            elif result_sentiment >= 0 and result_sentiment <= 0.5 :
+                  st.write('Prediction  :')
+                  st.subheader('Neutral')
+                  st.success(f'Score : {result_sentiment}')
             

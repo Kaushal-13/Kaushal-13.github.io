@@ -59,7 +59,7 @@ elif (page == "Faqs"):
 elif(page == "Advanced version"):
       st.title("This is the advanced version It can accept datasets");
       uploadedFile = st.file_uploader("Upload File",type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");
-      if uploadedFile is not None and uploadedFile.type = "csv":
+      if uploadedFile is not None and uploadedFile.type == "csv":
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
       if uploadedFile is not None and uploadedFile.endswith('xlsx'):

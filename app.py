@@ -75,6 +75,7 @@ elif(choose == "Advanced Version"):
             sum = 0;
             for index,row in df.iterrows():
                 sum = sum + score(row["tweet"]);
+      result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = sum
             

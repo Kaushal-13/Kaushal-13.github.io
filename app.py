@@ -72,9 +72,9 @@ elif(choose == "Advanced Version"):
       if uploadedFile is not None and uploadedFile.type == "csv":
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-            sum = 0;
+            s = 0;
             for index,row in df.iterrows():
-                sum = sum + score(row["tweet"]);
+                s = s + score(row["tweet"]);
       result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = sum

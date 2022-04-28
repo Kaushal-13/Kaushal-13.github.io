@@ -49,14 +49,14 @@ elif (page == "Faqs"):
       st.download_button('Download CSV', text_contents)  # Defaults to 'text/plain'
 
       with open('myfile.csv') as f:
-      st.download_button('Download CSV', f)  # Defaults to 'text/plain'
+            st.download_button('Download CSV', f)  # Defaults to 'text/plain'
 
       # ---
       # Binary files
       binary_contents = b'whatever'
       st.download_button('Download file', binary_contents)  # Defaults to 'application/octet-stream'
       with open('myfile.zip', 'rb') as f:
-      st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+            st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
       if st.download_button(...):
-      st.write('Thanks for downloading!')
+            st.write('Thanks for downloading!')
        

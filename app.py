@@ -74,7 +74,8 @@ elif(choose == "Advanced Version"):
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
             for index,row in df.iterrows():
-                s = s + score(row["tweet"]);
+                s = s + score(row['tweet']);
+                st.write("hello");
       result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = s

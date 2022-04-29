@@ -52,7 +52,7 @@ elif(choose == "Our App"):
 
         elif result_sentiment < 0 :
               st.write('Prediction  :')
-              st.markdown(":smiley:");  
+              st.markdown(":angry:");  
               st.subheader('Negative')
               st.success(f'Score : {result_sentiment}')
 

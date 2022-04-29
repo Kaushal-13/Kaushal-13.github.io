@@ -5,6 +5,7 @@ from streamlit_option_menu import option_menu
 from textblob import TextBlob 
 import matplotlib.pyplot as plt
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def score(sentence):
     obj = SentimentIntensityAnalyzer()

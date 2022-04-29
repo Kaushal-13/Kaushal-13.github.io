@@ -48,6 +48,8 @@ elif(choose == "Our App"):
         message = st.text_area("Enter Text")
         if st.button("Analyze"):
               result_sentiment = score(message)
+              df2 = pd.DataFrame(score_graph(message),index = [0]);
+              st.line_chart(df2);
             
         if result_sentiment > 0.5 and result_sentiment < 1 :
               st.write('Prediction  :')
@@ -65,8 +67,7 @@ elif(choose == "Our App"):
               st.write('Prediction  :')
               st.subheader('Neutral')
               st.success(f'Score : {result_sentiment}')
-        df2 = pd.DataFrame(score_graph(message),index = [0]);
-        st.line_chart(df2);
+
               
 elif (choose == "Faqs"):
       st.title("FAQS");

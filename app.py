@@ -31,7 +31,7 @@ if(choose == "About us"):
                 The goal of this app is to track people's opinion """);
       st.write(""" Contact us
       Email Id's \n 
-      Shubh - 420236@gmail.com \n 
+      Shubh - 420236@gmail.com
       Kaushal - 420245@gmail.com""");
 elif(choose == "Our App"):
         # Title
@@ -69,6 +69,7 @@ elif (choose == "Faqs"):
       st.write("""How can sentiment anlysis be used?\n
             Sentiment Analysis can be used to understand public opinions on nearly everything like the review of a product 
             or the working of a company or the way the people are reacting to news. """);
+      st.write(""" For more information on sentiment analysis go to https://medium.com/@piocalderon/vader-sentiment-analysis-explained-f1c4f9101cd9#:~:text=Primarily%2C%20VADER%20sentiment%20analysis%20relies,each%20word%20in%20the%20text.""");
 elif(choose == "Advanced Version"):
       st.title("This is the advanced version It can accept datasets");
       uploadedFile = st.file_uploader("Upload File",type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");

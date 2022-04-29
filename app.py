@@ -74,7 +74,6 @@ elif(choose == "Advanced Version"):
             df1 = pd.read_csv(uploadedFile);
             for index,row in df1.iterrows():
                 s = s + score(row['message']);
-                st.write("hello");
       result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = s

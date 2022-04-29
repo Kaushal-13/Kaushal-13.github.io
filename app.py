@@ -3,7 +3,9 @@ import pandas as pd;
 from streamlit_option_menu import option_menu
 #do using vader
 from textblob import TextBlob 
+import matplotlib.pyplot as plt
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def score(sentence):
     obj = SentimentIntensityAnalyzer()
@@ -48,8 +50,12 @@ elif(choose == "Our App"):
         message = st.text_area("Enter Text")
         if st.button("Analyze"):
               result_sentiment = score(message)
-              df2 = pd.DataFrame(score_graph(message),index = [0]);
-              st.area_chart(df2);
+              data = score_graph(message);
+              c = ['red', 'yellow', 'green', 'blue']
+              names = list(data.keys())
+              values = list(data.values())
+              plt.bar(range(len(data)), values, tick_label=names,color = c);
+              st.pyplot(plt.show());
             
         if result_sentiment > 0.5 and result_sentiment < 1 :
               st.write('Prediction  :')

@@ -12,6 +12,11 @@ def score(sentence):
     val = val*2.5;
     #return val if you need to map bw 0 and 5;
     return sentiment_dict['compound'];
+def score_graph(sentence):
+    obj = SentimentIntensityAnalyzer()
+    sentiment_dict = obj.polarity_scores(sentence);
+    #return val if you need to map bw 0 and 5;
+    return sentiment_dict;
     
 with st.sidebar:
     choose = option_menu("App Gallery", ["About us", "Our App", "Faqs", "Advanced Version"],
@@ -60,6 +65,8 @@ elif(choose == "Our App"):
               st.write('Prediction  :')
               st.subheader('Neutral')
               st.success(f'Score : {result_sentiment}')
+        df2 = pd.dataframe(score_graph(message));
+        st.line_chart(df2);
               
 elif (choose == "Faqs"):
       st.title("FAQS");

@@ -51,9 +51,10 @@ elif(choose == "Our App"):
         if st.button("Analyze"):
               result_sentiment = score(message)
               data = score_graph(message);
+              c = ['red', 'yellow', 'black', 'blue', 'orange']
               names = list(data.keys())
               values = list(data.values())
-              plt.bar(range(len(data)), values, tick_label=names)
+              plt.bar(range(len(data)), values, tick_label=names,color = c);
               st.pyplot(plt.show());
             
         if result_sentiment > 0.5 and result_sentiment < 1 :

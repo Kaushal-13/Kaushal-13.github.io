@@ -15,7 +15,7 @@ def score(sentence):
     
 with st.sidebar:
     choose = option_menu("App Gallery", ["About us", "Our App", "Faqs", "Advanced Version"],
-                         icons=['house', 'file', 'quora', 'file-fill'],
+                         icons=['house', 'emoji-laughing', 'quora', 'window'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
         "container": {"padding": "5!important", "background-color": "#fafafa"},

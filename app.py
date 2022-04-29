@@ -73,7 +73,7 @@ elif(choose == "Advanced Version"):
       if uploadedFile is not None :
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-            n = df2.shape[0]
+            n = df1.shape[0]
             for index,row in df1.head(100).iterrows():
                 s = s + score(row['message']);
             s = s/max(100,n);

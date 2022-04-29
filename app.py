@@ -29,7 +29,10 @@ if(choose == "About us"):
       st.write(""" This is a basic version of the sentiment analysis app
                 we are a team of two, Kaushal Tiwari and Shubh Agarwal studying at Nit-Ap.
                 The goal of this app is to track people's opinion """);
-      st.write("Contact us n Email Id's \n Shubh - 420236@gmail.com \n Kaushal - 420245@gmail.com");
+      st.write(""" Contact us
+      Email Id's \n 
+      Shubh - 420236@gmail.com \n 
+      Kaushal - 420245@gmail.com""");
 elif(choose == "Our App"):
         # Title
         st.title("Sentiment Analysis")

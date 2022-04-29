@@ -49,7 +49,7 @@ elif(choose == "Our App"):
         if st.button("Analyze"):
               result_sentiment = score(message)
               df2 = pd.DataFrame(score_graph(message),index = [0]);
-              st.bar_chart(df2);
+              st.area_chart(df2);
             
         if result_sentiment > 0.5 and result_sentiment < 1 :
               st.write('Prediction  :')

@@ -69,12 +69,13 @@ elif(choose == "Advanced Version"):
       st.title("This is the advanced version It can accept datasets");
       uploadedFile = st.file_uploader("Upload File",type=['csv','xlsx'],accept_multiple_files = False,key = "fileUploader");
       s = 0;
+      n = df.shape[0]
       if uploadedFile is not None :
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
             for index,row in df1.head(100).iterrows():
                 s = s + score(row['message']);
-            s = s/100;
+            s = s/max(100,n);
       result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = s

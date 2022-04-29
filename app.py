@@ -52,8 +52,8 @@ elif(choose == "Our App"):
               data = score_graph(message);
               names = list(data.keys())
               values = list(data.values())
-              a = plt.bar(range(len(data)), values, tick_label=names)
-              st.pyplot(a);
+              plt.bar(range(len(data)), values, tick_label=names)
+              st.pyplot(plt.show());
             
         if result_sentiment > 0.5 and result_sentiment < 1 :
               st.write('Prediction  :')

@@ -76,7 +76,7 @@ elif(choose == "Advanced Version"):
             n = df1.shape[0]
             for index,row in df1.head(100).iterrows():
                 s = s + score(row['message']);
-            s = s/max(100,n);
+            s = s/min(100,n);
       result_sentiment = 2;
       if st.button("Analyze"):
             result_sentiment = s

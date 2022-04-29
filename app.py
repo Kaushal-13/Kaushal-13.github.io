@@ -8,7 +8,6 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 def score(sentence):
     obj = SentimentIntensityAnalyzer()
     sentiment_dict = obj.polarity_scores(sentence);
-    ''' to map the value bw 0 - 5 we use f(x) = 2.5(x+1)'''
     val = sentiment_dict['compound'] + 1;
     val = val*2.5;
     #return val if you need to map bw 0 and 5;

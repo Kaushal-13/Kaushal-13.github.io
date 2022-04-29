@@ -72,7 +72,7 @@ elif(choose == "Advanced Version"):
       if uploadedFile is not None :
             st.write('Prediction  :')
             df1 = pd.read_csv(uploadedFile);
-            for index,row in df1.iterrows():
+            for index,row in df1.head(100).iterrows():
                 s = s + score(row['message']);
       result_sentiment = 2;
       if st.button("Analyze"):

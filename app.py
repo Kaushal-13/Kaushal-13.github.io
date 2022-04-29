@@ -65,7 +65,7 @@ elif(choose == "Our App"):
               st.write('Prediction  :')
               st.subheader('Neutral')
               st.success(f'Score : {result_sentiment}')
-        df2 = pd.DataFrame(score_graph(message));
+        df2 = pd.DataFrame(score_graph(message),index = [0]);
         st.line_chart(df2);
               
 elif (choose == "Faqs"):

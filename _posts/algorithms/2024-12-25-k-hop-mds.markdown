@@ -1,0 +1,172 @@
+---
+layout: post
+title: "Formal Proof for the K hop Minimum Dominating Set Problem"
+date: 2025-01-19
+categories: blog
+---
+
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+In computer networks, ensuring security and resilience often requires analyzing how well a network can be monitored, controlled, or disrupted. For example, suppose you want to determine the minimum number of key computers (or nodes) needed to bring down a network by disabling critical machines within a specified range of influence. This problem can also apply to monitoring the spread of information or disease in a social or biological network, where nodes represent individuals or locations, and edges represent interactions.
+
+The **K-hop Minimum Dominating Set (K-MDS)** problem offers a mathematical framework for solving such challenges. By identifying the smallest set of nodes capable of "dominating" all other nodes within a maximum distance of $$K$$ (or hops), we can optimize resources for network surveillance, targeted control, or even attack simulations. The K-MDS problem generalizes the Minimum Dominating Set problem, incorporating the concept of a maximum allowable distance, $$t$$, that a node's influence can span.
+
+# Formal Proof for the K-hop Minimum Dominating Set Problem
+
+
+Let $$G = (V, E)$$ be a connected graph where $$V$$ is the set of vertices
+and $$E$$ is the set of edges. Let $$t$$ be a positive integer representing
+the maximum traversal time allowed.
+
+We define the K-Minimum Dominating Set (MDS) problem as follows:
+
+Given graph $$G = (V, E)$$ and a positive integer $$t$$, find a set of
+vertices $$S \subseteq V$$ such that for every vertex $$N \in V$$, there
+exists at least one vertex $$s \in S$$ such that the distance between $$N$$
+and $$s$$ is at most $$t$$.
+
+Formally, the problem can be expressed as finding $$S \subseteq V$$ such
+that:
+$$
+\forall N \in V, \exists s \in S \text{ s.t. } \text{dist}(N, s) \leq t
+$$
+
+Where:
+
+-   $$\text{dist}(N, s)$$ denotes the distance between vertices $$N$$ and
+    $$s$$ in the graph $$G$$.
+
+-   $$t$$ is the maximum traversal time allowed.
+
+This problem is a general form for the Minimum Dominating Set problem.
+We need to minimize the size of $$S$$.
+
+Let us, for the sake of generality, call this the $$t$$-MDS problem.
+
+We prove the NP hardness of this problem using the Minimum Set Cover
+problem.
+
+**Minimum Set Cover (MSC)**
+
+**Instance:** A base set $$Q = \{q_1, q_2, \ldots, q_n\}$$, a collection
+$$C = \{c_1, c_2, \ldots, c_m\}$$ where $$c_j \subseteq Q$$ for
+$$1 \leq j \leq m$$, and an integer $$K \leq m$$.
+
+**Theorem:** $$t$$-MDS is NP-complete.
+
+**Proof:** $$k$$-MDS is in NP, as the answer length is in $$O(n)$$ and the
+answer can be verified with a BFS on the graph $$G$$.
+
+To prove NP Hardness, we reduce from the MSC problem.
+
+Consider an instance $$I$$ of the MSC given by the set $$Q$$, the collection
+$$C$$, and an integer $$k$$.
+
+An instance $$I'$$ of the $$t$$-MDS consisting of the Graph $$G = (V,E)$$ is
+constructed as follows:
+
+1. Let $$V = V_1 \cup V_2 \cup V_3$$, where
+$$V_1 = \{v_1, v_2, \ldots, v_n\}$$ (one vertex in $$V_1$$ corresponds to
+each element in $$Q$$). 
+2. Let $$V_2 = \{w_1, w_2, \ldots, w_m\}$$ (one
+vertex in $$V_2$$ corresponds to each set in the collection $$C$$). 
+3. Let
+$$V_3 = \{p_{ij1}, p_{ij2}, \ldots, p_{ij(t-1)}\}$$, where $$p_{ijk}$$
+exists only when $$v_i \in w_j$$. The edges are defined as
+$$E = E1 \cup E2 \cup E3 \cup E4$$, where
+$$E1 = \{\{v_i, p_{ij1}\} \mid v_i \in w_j\}$$,
+$$E2 = \{\{p_{ijk}, p_{ijk+1}\} \mid 1 \leq k \leq t-2\}$$,
+$$E3 = \{\{p_{ij(t-1)}, w_j\}\}$$, $$E4 = \{\{w_i, w_j\} \mid i \neq j\}$$.
+
+This construction can be shown to be polynomial, as the new graph has at
+most $$m + n + m \times n \times t$$ nodes, i.e., $$O(mnt)$$, similarly for
+the edges.
+
+We show that the resulting instance $$I'$$ has a solution if and only if
+the instance $$I$$ has a solution.
+
+**Part 1:** Suppose the MSC instance has a cover of size at most $$k$$.
+
+**To prove**: The $$t$$-MDS also has a solution of size at most $$k$$.
+
+**Proof:**
+
+Let $$C' = \{c_1, c_2, c_3, \ldots, c_r\}$$ be the solution for the set
+cover problem, where $$r \leq k$$. Consider the set
+$$W = \{w_1, w_2, \ldots, w_r\}$$ where $$w_i$$ represents the corresponding
+set nodes for the element $$c_i$$. The set $$W$$ is the solution set for the
+$$t$$-MDS instance $$I'$$ as follows: For every node $$v$$ in $$V$$:
+
+1.  $$v \in V1$$: Since the set $$C'$$ acts as a cover for each node in
+    $$V1$$, there exists at least one set node in $$W$$ containing $$v$$.
+    Thus, all nodes of the first type are at a distance $$t$$ from at
+    least one node within the graph (due to the way intermediate nodes
+    are constructed).
+
+2.  $$v \in V2$$: All nodes in $$V2$$ form a clique, meaning any set of set
+    nodes can reach all other set nodes within one time period.
+
+3.  $$v \in V3$$: All the intermediate nodes are at most at a distance of
+    $$t-1$$ from the set nodes. For every intermediate node, it either
+    lies on the way between an element node ($$V1$$) and a set node
+    ($$V2$$), or it doesn't. In the former case, such a node can be
+    reached within time $$t$$ by the corresponding set node. In the latter
+    case, such a node can be reached within time $$t$$ by traveling first
+    to its corresponding set node (this takes 1 time instance) and then
+    reaching the node within the remaining $$t-1$$ steps. (Note that an
+    intermediate node can be at a maximum distance of $$t-1$$ from a set
+    node because of the way the graph is constructed.)
+
+This concludes the proof for part 1.
+
+**Part 2:** Suppose the $$t$$-MDS has a set of size at most $$k$$.
+
+**To prove**: There is a set cover $$C'$$ of size at most $$k$$.
+
+**Proof:** Let the set $$D'$$ represent the dominating set of size
+$$r \leq k$$, we can write $$D'$$ as $$D1 \cup D2 \cup D3$$ where $$D_i$$
+contains nodes in $$V_i$$.
+
+Then we construct a set $$D$$ such that,
+
+if a node belongs to $$D2$$ (set node) then keep it as it is.
+
+if a node belongs to $$D3$$ then replace it with the closest set node
+(note that the intermediate node lies between a set node and an element
+node). Basically, if $$p_{ijk}$$ lies in $$D'$$ then replace it with $$w_j$$.
+
+Similarly, if a node belongs to $$D1$$ then we can replace it with any
+arbitrary set node that it belongs to. Note that this construction does
+not increase the size of the dominating set also; the newly obtained set
+$$D$$ is also a dominating set. This is trivial to show, as every node
+that is dominated by the intermediate nodes is also dominated by the
+corresponding set nodes and we can similarly argue for the element
+nodes.
+
+Now, we need to show that the set $$D$$, which contains nodes belonging
+only to $$D2$$, also serves as a set cover for the instance $$I$$.
+
+To prove this, we'll employ a proof by contradiction.
+
+Let's assume there exists a node $$v_i$$ that does not belong to the set
+cover.
+
+Then, there is no set node in $$D$$ containing $$v_i$$. However, if such a
+node doesn't exist, then there would have been no intermediate nodes of
+the form $$p_{ijk}$$ in the dominating set $$D'$$. Similarly, there would
+have been no set nodes $$w_j$$ containing $$v_i$$, or else $$v_i$$ would be in
+the set cover.
+
+This implies that no node within a distance $$t$$ from $$v_i$$ has been
+selected, meaning the set $$D'$$ is not a dominating set. But this
+contradicts our knowledge that $$D'$$ is a dominating set. Hence, our
+assumption must be false.
+
+Thus, there exists no such node $$v_i$$ that does not belong to the set
+cover.
+
+Therefore, $$D$$ represents the set cover.
+
+This concludes part 2 as well as the proof for the theorem.
